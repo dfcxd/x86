@@ -42,9 +42,11 @@ jobs:
         sudo -E apt-get -qq clean
         curl -fsSL https://raw.githubusercontent.com/P3TERX/dotfiles/master/.bashrc >> ~/.bashrc
         
-    - name: gperf install 
-      run: sudo apt-get install gperf*
-      
+    - name:  install gperf antlr3
+      run: ｜
+        sudo apt-get install -y gperf*
+        sudo apt-get install -y antlr3
+        
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
