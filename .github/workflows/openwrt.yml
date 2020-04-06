@@ -89,7 +89,7 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*uefi*" | xargs -i mv -f {} ./firmware/
+        mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*squashfs*" | xargs -i mv -f {} ./firmware/
         mv openwrt/.config  ./firmware/config.txt
         cd firmware
         echo "::set-env name=FIRMWARE::$PWD"
