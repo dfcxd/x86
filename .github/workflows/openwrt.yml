@@ -1,4 +1,4 @@
-#         
+
 name: OenWRT-Charles
 
 on:
@@ -9,14 +9,14 @@ on:
       - master
     paths:
       - 'make.img'
-#   schedule:
-#      - cron: 0 0 * * *
+  schedule:
+    - cron: 0 0 * * *
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -102,7 +102,7 @@ jobs:
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
-        mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*squashfs*" | xargs -i mv -f {} ./firmware/
+        mkdir firmware && find openwrt/bin/targets/*/*/* -maxdepth 0 -name "*combined*" | xargs -i mv -f {} ./firmware/
         mv openwrt/.config  ./firmware/config.txt
         cd firmware
         echo "::set-env name=FIRMWARE::$PWD"
