@@ -9,8 +9,6 @@ on:
       - master
     paths:
       - 'test.test'
-  schedule:
-    - cron: 0 0 * * *
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
@@ -73,14 +71,6 @@ jobs:
       uses: P3TERX/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
 
-
-    - name: Upload bin directory
-      uses: actions/upload-artifact@master
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: OpenWrt_bin
-        path: openwrt/bin
-
     - name: Organize files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
@@ -90,10 +80,6 @@ jobs:
         cd firmware
         echo "::set-env name=FIRMWARE::$PWD"
         echo "::set-output name=status::success"
-        
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%m/%d,%Y')"
       
     - name: Upload firmware directory
       uses: actions/upload-artifact@master
@@ -102,12 +88,4 @@ jobs:
         name: OpenWrt_firmware
         path: ${{ env.FIRMWARE }}
         
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
-      if: steps.compile.outputs.status == 'success' && !cancelled()
-      with:
-        repo_token: ${{ secrets.REPO_TOKEN }}
-        file: ${{ env.FIRMWARE }}/*
-        tag: ${{steps.date.outputs.date}}
-        overwrite: true
-        file_glob: true
+
