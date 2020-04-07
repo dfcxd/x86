@@ -1,11 +1,7 @@
-# openwrt
-combined-openwrt; 基于L大源码；增加pchifi-AirPlay-aria2-ttyd;
 
 name: OenWRT-Charles
 
 on:
-#   release:
-#     types: published
   push:
     branches:
       - master
@@ -126,3 +122,4 @@ jobs:
         tag: ${{steps.date.outputs.date}}
         overwrite: true
         file_glob: true
+:
