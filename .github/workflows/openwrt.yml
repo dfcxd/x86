@@ -58,7 +58,9 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
     
     - name: do a config
-      run: make defconfig
+      run: |
+        cd openwrt
+        make defconfig
 
     - name: Load custom configuration
       run: |
