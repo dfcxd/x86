@@ -18,10 +18,6 @@
 
 ## 插件范围
 
-Lean大默认的插件全包含，增加aira2（用于常规下载），remote music center（播放音乐），miniDLNA（视频转码），ttyd（网页版ssh终端）；
+Lean大默认的插件全包含，增加aira2（用于常规下载），miniDLNA（视频转码），ttyd（网页版ssh终端）；
 
-删除vmware编译包；删除IPv6支持；
-
-## 更新方法
-
-保留配置，刷写新的固件；
+删除vmware编译包；
