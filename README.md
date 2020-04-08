@@ -1,3 +1,5 @@
+使用Lean大代码编译，工作流使用P3TERX大模板改写；
+增加安装依赖项，编译过程不报错（eg:antlr3 gperf）
 
 name: OenWRT-Charles
 
