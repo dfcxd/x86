@@ -16,3 +16,12 @@
 
 首先通过config工作流生成config，然后把config导出到根目录文件中，再定时（或手动）编译，实现长效机制；
 
+## 插件范围
+
+Lean大默认的插件全包含，增加aira2（用于常规下载），remote music center（播放音乐），miniDLNA（视频转码），ttyd（网页版ssh终端）；
+
+删除vmware编译包；删除IPv6支持；
+
+## 更新方法
+
+保留配置，刷写新的固件；
