@@ -6,7 +6,7 @@ on:
     branches:
       - master
     paths:
-      - 'L.make'
+      - 'L.img'
   schedule:
     - cron: 0 20 * * 6
 
