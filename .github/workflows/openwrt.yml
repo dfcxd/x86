@@ -118,13 +118,4 @@ jobs:
       with:
         name: OpenWrt_firmware
         path: ${{ env.FIRMWARE }}
-        
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
-      if: steps.compile.outputs.status == 'success' && !cancelled()
-      with:
-        repo_token: ${{ secrets.REPO_TOKEN }}
-        file: ${{ env.FIRMWARE }}/*
-        tag: ${{steps.date.outputs.date}}
-        overwrite: true
-        file_glob: true
+
