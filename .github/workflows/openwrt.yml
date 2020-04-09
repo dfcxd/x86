@@ -107,10 +107,7 @@ jobs:
         cd firmware
         echo "::set-env name=FIRMWARE::$PWD"
         echo "::set-output name=status::success"
-        
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +'%m/%d,%Y')"
+
       
     - name: Upload firmware directory
       uses: actions/upload-artifact@master
