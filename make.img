@@ -1,2 +1,1 @@
-30
-解决libwebsockets-openssl和libwebsockets-full编译冲突问题
+在 SSH 上一步的时候会创建一个默认配置的 .config（如果没上传 .figcon 时），这时如果在 SSH 内直接 make menuconfig 就会在原生成的配置上改，导致取消 luci/app 不会自动取消相关依赖，建议在 SSH 脚本那里先运行一次删除 .config，另外可以在教程那里写一下进入网页 SSH 后按一次 Ctrl+C，不然一片黑，输什么命令也没用，我第一次用的时候一脸懵逼
