@@ -54,11 +54,6 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-    
-    - name: do a config
-      run: |
-        cd openwrt
-        make defconfig
 
     - name: Load custom configuration
       run: |
