@@ -6,7 +6,7 @@
 
 增加安装依赖项，编译过程不报错（eg:antlr3 gperf）；
 
-每日五点定时编译，预计八点编译完成，每日发布一份release；
+每周五定时编译，每周发布一份release；
 
 固件仅包含combined格式，不包含uefi格式（如需，可修改config文件）；
 
@@ -18,6 +18,10 @@
 
 ## 插件范围
 
-Lean大默认的插件全包含，增加aira2（用于常规下载），miniDLNA（视频转码），ttyd（网页版ssh终端）；
+Lean大默认的插件全包含，增加aira2（用于常规下载）、miniDLNA（视频转码）、ttyd（网页版ssh终端）、CIFS-mount；
 
-删除vmware编译包；
+删除xlnetacc、zerotier、accesscontrol、openvpn、qbittorrent、arpbind、unblockmusic、vsftpd、vlmcsd、wol；
+
+ssrp只保留v2ray、trojan；
+
+删除vmware编译包、删除IPv6支持；
