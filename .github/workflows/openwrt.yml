@@ -9,14 +9,14 @@ on:
     paths:
       - 'make.img'
   schedule:
-    - cron: 0 21 * * 5
+    - cron: 0 10 * * 4
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
   FEEDS_CONF_DEFAULT: feeds.conf_default
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
