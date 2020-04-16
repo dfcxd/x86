@@ -50,6 +50,7 @@ jobs:
 
     - name: 安装feeds
       run: cd openwrt && ./scripts/feeds install -a
+      
     - name: 删除默认config
       run: |
         cd openwrt
