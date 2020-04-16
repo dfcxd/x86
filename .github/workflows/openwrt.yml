@@ -46,10 +46,15 @@ jobs:
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
     - name: 更新feeds
-      run: cd openwrt && ./scripts/feeds update -a
+      run: |
+        cd openwrt
+        sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
+        ./scripts/feeds update -a
 
     - name: 安装feeds
-      run: cd openwrt && ./scripts/feeds install -a
+      run: |
+        cd openwrt
+        ./scripts/feeds install -a
       
     - name: 删除默认config
       run: |
