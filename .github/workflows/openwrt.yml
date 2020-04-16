@@ -9,18 +9,13 @@ on:
     paths:
       - 'make.img'
   schedule:
-    - cron: 0 10 * * 4
+    - cron: 0 21 * * 5
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
-<<<<<<< HEAD
-  FEEDS_CONF_DEFAULT: feeds.conf_default
   SSH_ACTIONS: false
-=======
-  SSH_ACTIONS: true
->>>>>>> parent of c12f4a4... 更新工作流（支持helloworld）
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -47,7 +42,6 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         curl -fsSL https://raw.githubusercontent.com/P3TERX/dotfiles/master/.bashrc >> ~/.bashrc
-
     - name: 克隆代码
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
