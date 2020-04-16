@@ -15,8 +15,12 @@ env:
   REPO_BRANCH: master
   CONFIG_FILE: .config
   DIY_SH: diy.sh
+<<<<<<< HEAD
   FEEDS_CONF_DEFAULT: feeds.conf_default
   SSH_ACTIONS: false
+=======
+  SSH_ACTIONS: true
+>>>>>>> parent of c12f4a4... 更新工作流（支持helloworld）
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -46,19 +50,12 @@ jobs:
 
     - name: 克隆代码
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-      
-    - name: 载入自定义feeds
-      run: |
-        rm -rf openwrt/feeds.conf_default
-        [ -e files ] && mv files openwrt/files
-        [ -e $FEEDS_CONF_DEFAULT ] && mv $FEEDS_CONF_DEFAULT openwrt/feeds.conf_default
 
     - name: 更新feeds
       run: cd openwrt && ./scripts/feeds update -a
 
     - name: 安装feeds
       run: cd openwrt && ./scripts/feeds install -a
-      
     - name: 删除默认config
       run: |
         cd openwrt
